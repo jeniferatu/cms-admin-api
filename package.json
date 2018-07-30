@@ -1,0 +1,31 @@
+{
+  "name": "cms-cp-express",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./server-wrapper.js"
+  },
+  "dependencies": {
+    "admin-lte": "^2.4.3",
+    "body-parser": "~1.17.1",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "crypto-js": "^3.1.9-1",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "font-awesome": "^4.7.0",
+    "hbs": "~4.0.1",
+    "hbs-utils": "0.0.4",
+    "jquery": "^3.3.1",
+    "morgan": "~1.8.1",
+    "mysql": "^2.15.0",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "dotenv": "^5.0.1"
+  }
+}

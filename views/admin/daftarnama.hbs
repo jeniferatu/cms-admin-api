@@ -1,0 +1,159 @@
+{{>admin/header}}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            DAFTAR NAMA
+            <small>DATA DIRI</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/admin">
+                    <i class="fa fa-dashboard"></i>Home</a>
+            </li>
+            <li class="active">DaftarNama</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <div class="container-fluid half-padding">
+            <div class="template template__blank">
+                <div class="row">
+
+                    <!-- flash message -->
+                    
+
+                    <div class="col-md-12">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Filter Data</h3>
+                            </div>
+                            <!-- form start -->
+                            <form method="get" action="/admin/daftarnama" class="form-horizontal">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">                                      
+                                            <label for="exampleInputId">id</label>
+                                            <input type="text" name="Id" value="" class="form-control" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputNama">nama</label>
+                                            <input type="text" name="Nama" value="" class="form-control" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputNamaKeuangan">nama_keuangan</label>
+                                            <input type="text" name="Nama_Keuangan" value="" class="form-control" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputNamaPenjadwalan">nama_penjadwalan</label>
+                                            <input type="text" name="Pama_penjadwalan" value="" class="form-control" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputNamaBAU">nama_bau</label>
+                                            <input type="text" name="Nama_BAU" value="" class="form-control" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputGelar">gelar</label>
+                                            <input type="text" name="Gelar" value="" class="form-control" />
+                                        </div> 
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputNik">nik</label>
+                                            <input type="text" name="NIK" value="" class="form-control" />
+                                        </div> 
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputRekeningBank">rekening_bank</label>
+                                            <input type="text" name="Rekening_Bank" value="" class="form-control" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="exampleInputNamaRekDKI">nama_rek_dki</label>
+                                            <input type="text" name="Nama_Rek_DKI" value="" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search"></i> Cari</button>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-primary" href="/admin/daftarnama">
+                                        <i class="fa fa-time"></i> Clear Filter
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-primary" href="/admin/daftarnama/addNama">
+                                        <i class="fa fa-plus"></i> Tambah Nama
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <p style="font-weight: bold;text-decoration: underline; padding-top: 5px; padding-left: 10px;">Total Data :
+                                {{rows.length}}
+                            </p>
+                            <tr>              
+                                <th class="text-center" width="130">ACTION</th>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">nama</th>
+                                <th class="text-center">nama_keuangan</th>
+                                <th class="text-center">nama_penjadwalan</th>
+                                <th class="text-center">nama_bau</th>
+                                <th class="text-center">gelar</th>
+                                 <th class="text-center">nik</th>
+                                <th class="text-center">rekening_bank</th>
+                                <th class="text-center">nama_rek_dki</th>
+                            </tr>
+                            {{#each rows}}
+                            <tr>
+                                <td width="130">
+                                    <a href="/admin/daftarnama/{{id}}">
+                                        <button class="btn btn-block btn-default btn-sm">
+                                            <i class="fa fa-eye"></i> View Detail Nama
+                                        </button>
+                                    </a>
+                                </td>
+
+                                <td class="text-center">
+                                    {{id}}
+                                </td>
+                                <td class="text-center">
+                                    {{nama}}
+                                </td>
+                                 <td class="text-center">
+                                    {{nama_keuangan}}
+                                </td>
+                                <td class="text-center">
+                                    {{nama_penjadwalan}}
+                                </td>
+                                <td class="text-center">
+                                    {{nama_bau}}
+                                </td>
+                                 <td class="text-center">
+                                    {{gelar}}
+                                </td>
+                                <td class="text-center">
+                                    {{nik}}
+                                </td>
+                                <td class="text-center">
+                                    {{rekening_bank}}
+                                </td>
+                                <td class="text-center">
+                                    {{nama_rek_dki}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{{>admin/footer}}

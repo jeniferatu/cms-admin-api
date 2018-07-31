@@ -25,7 +25,7 @@ router.get('/users', async(req, res, next) => {
 
 router.get('/daftarnama', async(req, res, next) => {
     const tbl = 'daftarnama';
-    const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, Nik, Rekening_Bank, Nama_Rek_DKI FROM ${tbl}`); 
+    const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM ${tbl}`); 
     res.render('admin/daftarnama', { 
         title: 'Express',
         rows: rows
@@ -37,7 +37,7 @@ router.get('/users/addUser', (req, res, next) => {
 });
 
 router.get('/daftarnama/addNama', (req, res, next) => {
-    res.render('admin/addNama', { title: 'Express' });
+    res.render('admin/addNama', { title: 'Menambah nama' });
 });
 
 router.get('/users/:id', async(req, res, next) => {
@@ -112,7 +112,7 @@ router.post('/createNama', async(req, res) => {
         Nama_Rek_DKI : nama_rek_dki
     }
     const result = await db.insertRow(tableName, tableValue, res);
-    res.sendStatus(200);
+    res.sendStatus('/admin/daftarnama');
 });
 
 router.post('/editUser/:id', async(req,res) =>{

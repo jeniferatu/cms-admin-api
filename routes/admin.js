@@ -25,7 +25,7 @@ router.get('/users', async(req, res, next) => {
 
 router.get('/daftarnama', async(req, res, next) => {
     const tbl = 'daftarnama';
-    const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, Nik, Rekening_Bank, Nama_Rek_DKI ${tbl}`); 
+    const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, Nik, Rekening_Bank, Nama_Rek_DKI FROM ${tbl}`); 
     res.render('admin/daftarnama', { 
         title: 'Express',
         rows: rows
@@ -51,7 +51,7 @@ router.get('/users/:id', async(req, res, next) => {
 
 router.get('/daftarnama/:id', async(req, res, next) => { //utk nampilin datanya id itu
     const id = req.params.id;
-    const row = await db.query(` Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM daftarnama WHERE Id=${id}`);
+    const row = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM daftarnama WHERE Id=${id}`);
     res.render('admin/detailNama', {
         title: 'Detail Nama',
         row: row
@@ -148,7 +148,7 @@ router.post('/editUser/:id', async(req,res) =>{
     }
 });
 
-router.post('/editNama/:no', async(req, res) => {
+router.post('/editNama/:id', async(req, res) => {
     const {id, nama, nama_keuangan, nama_penjadwalan, nama_bau, gelar, nik, rekening_bank, nama_rek_dki} = req.body;
     const no = req.params.no;
     const tableName = 'daftarnama';

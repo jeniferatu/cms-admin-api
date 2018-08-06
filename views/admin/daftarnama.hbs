@@ -31,56 +31,24 @@
                                 <h3 class="box-title">Filter Data</h3>
                             </div>
                             <!-- form start -->
-                            <form method="get" action="/admin/daftarnama" class="form-horizontal">
+                            <form method="get" action="/daftarnama" class="form-horizontal">
                                 <div class="box-body">
                                     <div class="row">
-                                        <div class="col-sm-3">                                      
-                                            <label for="exampleInputId">Id</label>
-                                            <input type="text" name="Id" value="" class="form-control" />
-                                        </div>
                                         <div class="col-sm-3">
                                             <label for="exampleInputNama">Nama</label>
-                                            <input type="text" name="Nama" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputNamaKeuangan">Nama Keuangan</label>
-                                            <input type="text" name="Nama_Keuangan" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputNamaPenjadwalan">Nama Penjadwalan</label>
-                                            <input type="text" name="Pama_penjadwalan" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputNamaBAU">Nama BAU</label>
-                                            <input type="text" name="Nama_BAU" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputGelar">Gelar</label>
-                                            <input type="text" name="Gelar" value="" class="form-control" />
-                                        </div> 
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputNik">NIK</label>
-                                            <input type="text" name="NIK" value="" class="form-control" />
-                                        </div> 
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputRekeningBank">Rekening Bank</label>
-                                            <input type="text" name="Rekening_Bank" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputNamaRekDKI">Nama Rekening DKI</label>
-                                            <input type="text" name="Nama_Rek_DKI" value="" class="form-control" />
-                                        </div>
+                                            <input type="text" name="query" value="" class="form-control" />
+                                        </div>                            
                                     </div>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-search"></i> Cari</button>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/admin/daftarnama">
+                                    <a class="btn btn-primary" href="/daftarnama">
                                         <i class="fa fa-time"></i> Clear Filter
                                     </a>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/admin/daftarnama/addNama">
+                                    <a class="btn btn-primary" href="/daftarnama/addNama">
                                         <i class="fa fa-plus"></i> Tambah Nama
                                     </a>
                                 </div>
@@ -109,7 +77,7 @@
                             {{#each rows}}
                             <tr>
                                 <td width="130">
-                                    <a href="/admin/daftarnama/{{id}}">
+                                    <a href="/daftarnama/{{Id}}">
                                         <button class="btn btn-block btn-default btn-sm">
                                             <i class="fa fa-eye"></i> View Detail Nama
                                         </button>

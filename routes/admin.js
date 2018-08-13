@@ -47,7 +47,7 @@ router.get('/users/addUser', (req, res, next) => {
     res.render('admin/addUser', { title: 'Express' });
 });
 
-router.get('/daftarnama/addNama', (req, res, next) => {
+router.get('/users/addNama', (req, res, next) => {
     res.render('admin/addNama', { title: 'Express' });
 });
 
@@ -60,11 +60,11 @@ router.get('/users/:id', async(req, res, next) => {
     });
 });
 
-router.get('/detailednama/:id', async(req, res, next) => { //utk nampilin datanya id itu
+router.get('/detailedNama/:id', async(req, res, next) => { //utk nampilin datanya id itu
     const id = req.params.id;
     console.log('detail')
     const row = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM daftarnama WHERE Id=${id}`);
-    res.render('admin/detailNama', {
+    res.render('admin/detailedNama', {
         title: 'Detail Nama',
         row: row
     });
@@ -106,25 +106,24 @@ router.post('/createUser', async(req,res) =>{
         level: 1
     }
     const result = await db.insertRow(tableName, tableValue, res);
-    res.redirect('/admin/users');
+    res.redirect('/users');
 });
 
 router.post('/createNama', async(req, res) => {
-    const {id, nama, nama_keuangan, nama_penjadwalan, nama_bau, gelar, nik, rekening_bank, nama_rek_dki} = req.body;//input dr browser
+    const {Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI} = req.body;//input dr browser
     const tableName = 'daftarnama';
     const tableValue = {
-        ID : id,
-        Nama : nama,
-        Nama_Keuangan : nama_keuangan,
-        Nama_Penjadwalan : nama_penjadwalan,
-        Nama_BAU : nama_bau,
-        Gelar : gelar,
-        NIK : nik,
-        Rekening_Bank : rekening_bank,
-        Nama_Rek_DKI : nama_rek_dki
+        Nama : Nama,
+        Nama_Keuangan : Nama_Keuangan,
+        Nama_Penjadwalan : Nama_Penjadwalan,
+        Nama_BAU : Nama_BAU,
+        Gelar : Gelar,
+        NIK : NIK,
+        Rekening_Bank : Rekening_Bank,
+        Nama_Rek_DKI : Nama_Rek_DKI
     }
     const result = await db.insertRow(tableName, tableValue, res);
-    res.sendStatus('/admin/daftarnama');
+    res.redirect('/daftarnama');
 });
 
 router.post('/editUser/:id', async(req,res) =>{
@@ -181,6 +180,8 @@ router.post('/editNama/:id', async(req, res) => {
     const result = await db.updateRow(tableName, tableValue, condition, res); 
     res.sendStatus(200);
 })
+
+//router.use("admin/addNama",addNama);
 
 
 

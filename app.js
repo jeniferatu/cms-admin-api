@@ -11,7 +11,7 @@ import hbsutils from 'hbs-utils';
 var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
-var daftarnama = require('./routes/daftarnama');
+// var daftarnama = require('./routes/daftarnama');
 
 var app = express();
 

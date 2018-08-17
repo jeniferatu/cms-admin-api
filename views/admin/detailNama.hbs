@@ -31,69 +31,63 @@
 							<div class="box-header with-border">
 								<h3 class="box-title">Edit Nama Form Information</h3>
 							</div>
-							{{#each row}}
-							<form method="post" action="/editNama/{{id}}">							
+							{{#each alik}}
+							<form method="post" action="/editNama/{{Id}}">							
 								<table class="table table-bordered">
 									<tbody>
 										<tr>
-											<th style="width:50px">id</th>
-											<td>
-												<input type="text" class="form-control" name="Id" style="width:300px" value="">												
-											</td>
-										</tr>
-										<tr>
 											<th style="width:50px">nama</th>
 											<td>
-												<input type="text" class="form-control" name="Nama" style="width:300px" value="">
+												<input type="text" class="form-control" name="Nama" style="width:300px" value="{{Nama}}">
 											</td>
 										</tr>
 										<tr>
 											<th style="width:50px">nama_keuangan</th>
 											<td>
-												<input type="text" class="form-control" name="Nama_Keuangan" style="width:300px" value="" >
+												<input type="text" class="form-control" name="Nama_Keuangan" style="width:300px" value="{{Nama_Keuangan}}" >
 											</td>
 										</tr>
 										<tr>
 											<th style="width:50px">nama_penjadwalan</th>
 											<td>
-												<input type="text" class="form-control" name="Nama_Penjadwalan" style="width:300px" value="" >
+												<input type="text" class="form-control" name="Nama_Penjadwalan" style="width:300px" value="{{Nama_Penjadwalan}}" >
 											</td>
 										</tr>
                                         <tr>
 											<th style="width:50px">nama_bau</th>
 											<td>
-												<input type="text" class="form-control" name="Nama_BAU" style="width:300px" value="" >
+												<input type="text" class="form-control" name="Nama_BAU" style="width:300px" value="{{Nama_BAU}}" >
 											</td>
 										</tr>
                                         <tr>
 											<th style="width:50px">gelar</th>
 											<td>
-												<input type="text" class="form-control" name="Gelar" style="width:300px" value="" >
+												<input type="text" class="form-control" name="Gelar" style="width:300px" value="{{Gelar}}" >
 											</td>
 										</tr>
                                         <tr>
 											<th style="width:50px">nik</th>
 											<td>
-												<input type="text" class="form-control" name="NIK" style="width:300px" value="" >
+												<input type="text" class="form-control" name="NIK" style="width:300px" value="{{NIK}}" >
 											</td>
 										</tr>
                                         <tr>
 											<th style="width:50px">rekening_bank</th>
 											<td>
-												<input type="text" class="form-control" name="Rekening_Bank" style="width:300px" value="" >
+												<input type="text" class="form-control" name="Rekening_Bank" style="width:300px" value="{{Rekening_Bank}}" >
 											</td>
 										</tr>
                                         <tr>
 											<th style="width:50px">nama_rek_dki</th>
 											<td>
-												<input type="text" class="form-control" name="Nama_Rek_DKI" style="width:300px" value="" >
+												<input type="text" class="form-control" name="Nama_Rek_DKI" style="width:300px" value="{{Nama_Rek_DKI}}" >
 											</td>
 										</tr>			
 										<tr>
 											<th style="width:150px"></th>
 											<td colspan="2" style="width:250px">											
 												<input type="submit" class="btn btn-primary" value="Submit">
-												<a href="/admin/deleteNama/{{id}}" class="btn btn-danger pull-right">Delete</a>                                                
+												<a href="/deleteNama/{{Id}}" class="btn btn-danger pull-right">Delete</a>                                                
 											</td>
 										</tr>
 									</tbody>

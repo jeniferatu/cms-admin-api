@@ -14,13 +14,23 @@ router.get('/testConnection', async(req, res) => {
     res.send( getStatus);
 });
 
-router.get('/users', async(req, res, next) => {
+router.get('/users/:query?', async(req, res, next) => {
     const tbl = 'user';
-    const rows = await db.query(`SELECT user_id, email, name, level, status FROM ${tbl}`); 
-    res.render('admin/users', { 
-        title: 'Express',
-        rows: rows
-    });
+    const {query} = req.query; // Nama diganti jadi 
+    console.log(query);
+    if(query != null){
+        const rows = await db.query(`SELECT user_id, email, name, level, status FROM ${tbl} WHERE name LIKE '%${query}%' `); 
+        res.render('admin/users', { 
+            title: 'Express',
+            rows: rows // karena ga ke detect klo ditaro diluar makanya biar cepet di taro disini
+        });
+    }else {
+        const rows = await db.query(`SELECT user_id, email, name, level, status FROM ${tbl}`); 
+        res.render('admin/users', { 
+            title: 'Express',
+            rows: rows
+        });
+    }
 });
 
 router.get('/daftarnama/:query?', async(req, res, next) => {
@@ -51,7 +61,7 @@ router.get('/users/addNama', (req, res, next) => {//karna /daftarnama dianggep /
     console.log("makan");
 });
 
-router.get('/users/:id', async(req, res, next) => {
+router.get('/detailedUsers/:id', async(req, res, next) => {
     const id = req.params.id;
     const row = await db.query(`SELECT user_id, email, name, status FROM user WHERE user_id=${id}`);
     res.render('admin/detailUser', {
@@ -82,7 +92,7 @@ router.get('/deleteUser/:id', async(req, res) => {
     const tableName = 'user';
     const result = await db.query(`DELETE FROM ${tableName} WHERE user_id=${id}`);
     console.log(result);
-    res.redirect('/admin/users');
+    res.redirect('/users');
 });
 
 router.get('/deleteNama/:id', async(req, res) => {
@@ -153,7 +163,7 @@ router.post('/editUser/:id', async(req,res) =>{
             }
             const result = await db.updateRow(tableName, tableValue, condition, res);            
         }
-        res.redirect('/admin/users');
+        res.redirect('/users');
     }else{
         var err = new Error('Password not match');
         err.status = 'Password not match'

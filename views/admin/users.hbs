@@ -31,32 +31,20 @@
                                 <h3 class="box-title">Filter Data</h3>
                             </div>
                             <!-- form start -->
-                            <form method="get" action="/admin/users" class="form-horizontal">
+                            <form method="get" action="/users" class="form-horizontal">
                                 <div class="box-body">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <label for="exampleInputEmail1">Email</label>
-                                            <input type="text" name="email" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
                                             <label for="exampleInputEmail1">Name</label>
-                                            <input type="text" name="name" value="" class="form-control" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="exampleInputEmail1">Status</label>
-                                            <select name="status" class="form-control" id="status">
-                                                <option value="">Pilih Status User</option>
-                                                <option value="1" >Aktif</option>
-                                                <option value="0" >Tidak Aktif</option>
-                                            </select>
-                                        </div>
+                                            <input type="text" name="query" value="" class="form-control" />
+                                        </div>                                        
                                     </div>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-search"></i> Cari</button>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/admin/users">
+                                    <a class="btn btn-primary" href="/users">
                                         <i class="fa fa-time"></i> Clear Filter
                                     </a>
                                     &nbsp;&nbsp;
@@ -84,7 +72,7 @@
                             {{#each rows}}
                             <tr>
                                 <td width="130">
-                                    <a href="/admin/users/{{user_id}}">
+                                    <a href="/detailedUsers/{{user_id}}">
                                         <button class="btn btn-block btn-default btn-sm">
                                             <i class="fa fa-eye"></i> View Detail
                                         </button>

@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Manage Admin
-            <small>manage daftar admin</small>
+            Daftar Data Admin
+            <small></small>
         </h1>
         <ol class="breadcrumb">
             <li>
@@ -31,7 +31,7 @@
                                 <h3 class="box-title">Filter Data</h3>
                             </div>
                             <!-- form start -->
-                            <form method="get" action="/users" class="form-horizontal">
+                            <form method="get" action="/admin/users/id" class="form-horizontal">
                                 <div class="box-body">
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -44,11 +44,11 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-search"></i> Cari</button>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/users">
+                                    <a class="btn btn-primary" href="/admin/users/id">
                                         <i class="fa fa-time"></i> Clear Filter
                                     </a>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/users/addUser">
+                                    <a class="btn btn-primary" href="/admin/users/addUser">
                                         <i class="fa fa-plus"></i> Tambah User
                                     </a>
                                 </div>
@@ -72,7 +72,7 @@
                             {{#each rows}}
                             <tr>
                                 <td width="130">
-                                    <a href="/detailedUsers/{{user_id}}">
+                                    <a href="/admin/detailedUsers/{{user_id}}">
                                         <button class="btn btn-block btn-default btn-sm">
                                             <i class="fa fa-eye"></i> View Detail
                                         </button>

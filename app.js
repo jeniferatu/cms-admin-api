@@ -9,7 +9,7 @@ import hbs from 'hbs';
 import hbsutils from 'hbs-utils';
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var admin = require('./routes/admin');
 // var daftarnama = require('./routes/daftarnama');
 
@@ -47,8 +47,8 @@ app.use('/customcss', express.static(`${__dirname}/public/stylesheets`));
 app.use('/customjs', express.static(`${__dirname}/public/javascripts`));
 app.use('/plugins', express.static(`${__dirname}/node_modules/admin-lte/plugins`));
 
-app.use('/', admin);
-// app.use('/users', users);
+app.use('/admin', admin);
+app.use('/', index);
 // app.use('/admin', requireLogin, admin);
 
 // catch 404 and forward to error handler

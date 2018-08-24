@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            DAFTAR NAMA
-            <small>DATA DIRI</small>
+            Daftar Data Dosen
+            <small></small>
         </h1>
         <ol class="breadcrumb">
             <li>
@@ -31,7 +31,7 @@
                                 <h3 class="box-title">Filter Data</h3>
                             </div>
                             <!-- form start -->
-                            <form method="get" action="/daftarnama" class="form-horizontal">
+                            <form method="get" action="/admin/daftarnama/id" class="form-horizontal">
                                 <div class="box-body">
                                     <div class="row">
                                         <div class="col-sm-3">
@@ -44,11 +44,11 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-search"></i> Cari</button>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/daftarnama">
+                                    <a class="btn btn-primary" href="/admin/daftarnama/id">
                                         <i class="fa fa-time"></i> Clear Filter
                                     </a>
                                     &nbsp;&nbsp;
-                                    <a class="btn btn-primary" href="/users/addNama">
+                                    <a class="btn btn-primary" href="/admin/daftarnama/addNama">
                                         <i class="fa fa-plus"></i> Tambah Nama
                                     </a>
                                 </div>
@@ -77,7 +77,7 @@
                             {{#each rows}}
                             <tr>
                                 <td width="130">
-                                    <a href="/detailedNama/{{Id}}">  {{!-- a intinya larinya routing --}}
+                                    <a href="/admin/detailedNama/{{Id}}">  {{!-- a intinya larinya routing --}}
                                         <button class="btn btn-block btn-default btn-sm">
                                             <i class="fa fa-eye"></i> View Detail Nama
                                         </button>

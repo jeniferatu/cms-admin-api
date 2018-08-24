@@ -5,23 +5,19 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', async(req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.redirect('/login');
 });
-
-router.get('/login', async(req, res, next) => {
-  res.render('login', { title: 'Login' })
-})
 
 router.get('/logout', async(req, res, next) => {
   req.session = null;
   res.redirect('/');
 });
 
-router.get('/admin/login', async(req, res, next) => {
+router.get('/login', async(req, res, next) => {
   res.render('admin/login', {title: 'Login Admin'});
 });
 
-router.post('/admin/login', async(req, res, next) => {
+router.post('/login', async(req, res, next) => {
   const {email, password} = req.body;
   const hashedPassword = crypto.SHA3(password, {outputLength: 512}).toString();
   const tableValue = 'user';

@@ -4,7 +4,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			Menambahkan Data Dosen
+			Menambahkan Data Admin
 			<small></small>
 		</h1>
 		<ol class="breadcrumb">
@@ -12,7 +12,7 @@
 				<a href="/admin">
 					<i class="fa fa-dashboard"></i>Home</a>
 			</li>
-			<li><a href="/admin/users"><i class="fa fa-inbox"></i>Users</a></li>
+			<li><a href="/admin/users/id/:query?"><i class="fa fa-inbox"></i>List Admin</a></li>
 		    <li class="active">Tambah</li>
 		</ol>
 	</section>
@@ -28,31 +28,31 @@
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<h3 class="box-title">Add User Form Information</h3>
+								<h3 class="box-title">Memasukkan Informasi</h3>
 							</div>
 							<form method="post" action="/admin/createUser">							
 								<table class="table table-bordered">
 									<tbody>
 										<tr>
-											<th style="width:50px">NAME</th>
+											<th style="width:50px">Nama</th>
 											<td>
 												<input type="text" class="form-control" name="name" style="width:300px" value="" required>												
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">EMAIL</th>
+											<th style="width:50px">Email</th>
 											<td>
 												<input type="email" class="form-control" name="email" style="width:300px" value="" required>			
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">PASSWORD</th>
+											<th style="width:50px">Password</th>
 											<td>
 												<input type="password" class="form-control" name="password" style="width:300px" value="" required>
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">CONFIRM PASSWORD</th>
+											<th style="width:50px">Confirm Password</th>
 											<td>
 												<input type="password" class="form-control" name="password2" style="width:300px" value="" required>
 											</td>
@@ -60,7 +60,7 @@
 										<tr>
 											<th style="width:150px"></th>
 											<td colspan="2" style="width:250px">											
-												<input type="submit" class="btn btn-primary" value="Submit">
+												<input type="submit" class="btn btn-primary" value="Simpan">
 											</td>
 										</tr>
 									</tbody>

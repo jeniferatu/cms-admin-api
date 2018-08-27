@@ -17,6 +17,14 @@ router.get('/login', async(req, res, next) => {
   res.render('admin/login', {title: 'Login Admin'});
 });
 
+router.get('/dashboard', function(req,res){
+  if(!loggedIn){
+    return res.status(401).send();
+  }
+  return res.status(200).send("Welcome to super secret API");
+
+})
+
 router.post('/login', async(req, res, next) => {
   const {email, password} = req.body;
   const hashedPassword = crypto.SHA3(password, {outputLength: 512}).toString();

@@ -5,15 +5,15 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			Manage Users
-			<small>MJM Travel</small>
+			Rincian Data
+			<small></small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
 				<a href="/admin">
 					<i class="fa fa-dashboard"></i>Home</a>
 			</li>
-			<li><a href="/admin/daftarnama"><i class="fa fa-users"></i>users</a></li>
+			<li><a href="/admin/daftarnama/id/:query?"><i class="fa fa-users"></i>List Data Dosen</a></li>
 		    <li class="active">Edit</li>
 		</ol>
 	</section>
@@ -29,56 +29,56 @@
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<h3 class="box-title">Edit Nama Form Information</h3>
+								<h3 class="box-title">Menyunting Informasi</h3>
 							</div>
 							{{#each alik}}
 							<form method="post" action="/admin/editNama/{{Id}}">							
 								<table class="table table-bordered">
 									<tbody>
 										<tr>
-											<th style="width:50px">nama</th>
+											<th style="width:50px">Nama</th>
 											<td>
 												<input type="text" class="form-control" name="Nama" style="width:300px" value="{{Nama}}">
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">nama_keuangan</th>
+											<th style="width:50px">Nama Keuangan</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_Keuangan" style="width:300px" value="{{Nama_Keuangan}}" >
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">nama_penjadwalan</th>
+											<th style="width:50px">Nama Penjadwalan</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_Penjadwalan" style="width:300px" value="{{Nama_Penjadwalan}}" >
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">nama_bau</th>
+											<th style="width:50px">Nama BAU</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_BAU" style="width:300px" value="{{Nama_BAU}}" >
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">gelar</th>
+											<th style="width:50px">Gelar</th>
 											<td>
 												<input type="text" class="form-control" name="Gelar" style="width:300px" value="{{Gelar}}" >
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">nik</th>
+											<th style="width:50px">NIK</th>
 											<td>
 												<input type="text" class="form-control" name="NIK" style="width:300px" value="{{NIK}}" >
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">rekening_bank</th>
+											<th style="width:50px">Nomor Rekening</th>
 											<td>
 												<input type="text" class="form-control" name="Rekening_Bank" style="width:300px" value="{{Rekening_Bank}}" >
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">nama_rek_dki</th>
+											<th style="width:50px">Nama Rekening</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_Rek_DKI" style="width:300px" value="{{Nama_Rek_DKI}}" >
 											</td>
@@ -86,8 +86,8 @@
 										<tr>
 											<th style="width:150px"></th>
 											<td colspan="2" style="width:250px">											
-												<input type="submit" class="btn btn-primary" value="Submit">
-												<a href="/admin/deleteNama/{{Id}}" class="btn btn-danger pull-right">Delete</a>                                                
+												<input type="submit" class="btn btn-primary" value="Simpan">
+												<a href="/admin/deleteNama/{{Id}}" class="btn btn-danger pull-right">Hapus Data</a>                                                
 											</td>
 										</tr>
 									</tbody>

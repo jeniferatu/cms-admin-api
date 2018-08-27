@@ -12,7 +12,7 @@
 				<a href="/admin">
 					<i class="fa fa-dashboard"></i>Home</a>
 			</li>
-			<li><a href="/admin/daftarnama"><i class="fa fa-inbox"></i>Nama</a></li>
+			<li><a href="/admin/daftarnama/id/:query?"><i class="fa fa-inbox"></i>List Data Dosen</a></li>
 		    <li class="active">Tambah</li>
 		</ol>
 	</section>
@@ -28,7 +28,7 @@
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<h3 class="box-title">Add Nama Form Information</h3>
+								<h3 class="box-title">Memasukkan Informasi</h3>
 							</div>
 							<form method="post" action="/admin/createNama">							
 								<table class="table table-bordered">
@@ -36,49 +36,49 @@
 								
 							
 										<tr>
-											<th style="width:50px">nama</th>
+											<th style="width:50px">Nama</th>
 											<td>
 												<input type="text" class="form-control" name="Nama" style="width:300px" value="" required>			
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">nama_keuangan</th>
+											<th style="width:50px">Nama Keuangan</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_Keuangan" style="width:300px" value="" required>												
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">nama_penjadwalan</th>
+											<th style="width:50px">Nama Penjadwalan</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_Penjadwalan" style="width:300px" value="" required>			
 											</td>
 										</tr>
                                         <tr>
-											<th style="width:50px">nama_bau</th>
+											<th style="width:50px">Nama BAU</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_BAU" style="width:300px" value="" required>												
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">gelar</th>
+											<th style="width:50px">Gelar</th>
 											<td>
 												<input type="text" class="form-control" name="Gelar" style="width:300px" value="" required>			
 											</td>
 										</tr>
 										 <tr>
-											<th style="width:50px">nik</th>
+											<th style="width:50px">NIK</th>
 											<td>
 												<input type="text" class="form-control" name="NIK" style="width:300px" value="" required>												
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">rekening_bank</th>
+											<th style="width:50px">Nomor Rekening</th>
 											<td>
 												<input type="text" class="form-control" name="Rekening_Bank" style="width:300px" value="" required>			
 											</td>
 										</tr>
                                          <tr>
-											<th style="width:50px">nama_rekening_bank</th>
+											<th style="width:50px">Nama Rekening</th>
 											<td>
 												<input type="text" class="form-control" name="Nama_Rek_DKI" style="width:300px" value="" required>												
 											</td>
@@ -86,7 +86,7 @@
 										<tr>
 											<th style="width:150px"></th>
 											<td colspan="2" style="width:250px">											
-												<input type="submit" class="btn btn-primary" value="Submit">
+												<input type="submit" class="btn btn-primary" value="Simpan">
 											</td>
 										</tr>
 									</tbody>

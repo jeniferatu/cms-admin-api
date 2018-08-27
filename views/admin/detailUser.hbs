@@ -5,15 +5,15 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			Manage Users
-			<small>MJM Travel</small>
+			Rincian Data
+			<small></small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
 				<a href="/admin">
 					<i class="fa fa-dashboard"></i>Home</a>
 			</li>
-			<li><a href="/admin/users"><i class="fa fa-users"></i>Users</a></li>
+			<li><a href="/admin/users/id/:query?"><i class="fa fa-users"></i>List Admin</a></li>
 		    <li class="active">Edit</li>
 		</ol>
 	</section>
@@ -29,38 +29,38 @@
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<h3 class="box-title">Edit User Form Information</h3>
+								<h3 class="box-title">Menyunting Informasi</h3>
 							</div>
 							{{#each row}}
 							<form method="post" action="/admin/editUser/{{user_id}}">							
 								<table class="table table-bordered">
 									<tbody>
 										<tr>
-											<th style="width:50px">NAME</th>
+											<th style="width:50px">Nama</th>
 											<td>
 												<input type="text" class="form-control" name="name" style="width:300px" value="{{name}}">												
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">EMAIL</th>
+											<th style="width:50px">Email</th>
 											<td>
 												<input type="email" class="form-control" name="email" style="width:300px" value="{{email}}">
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">PASSWORD</th>
+											<th style="width:50px">Password</th>
 											<td>
 												<input type="password" class="form-control" name="password" placeholder="Kosongkan jika tidak ingin ganti" style="width:300px" value="" >
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">CONFIRM PASSWORD</th>
+											<th style="width:50px">Confirm Password</th>
 											<td>
 												<input type="password" class="form-control" name="password2" placeholder="Kosongkan jika tidak ingin ganti" style="width:300px" value="" >
 											</td>
 										</tr>
 										<tr>
-											<th style="width:50px">STATUS</th>
+											<th style="width:50px">Status</th>
 											<td>
 												<select name="status" class="form-control" id="status" style="width:200px;text-align:center" required>
 													<option value="">Pilih Status User</option>
@@ -72,8 +72,8 @@
 										<tr>
 											<th style="width:150px"></th>
 											<td colspan="2" style="width:250px">											
-												<input type="submit" class="btn btn-primary" value="Submit">
-												<a href="/admin/deleteUser/{{user_id}}" class="btn btn-danger pull-right">Delete</a>                                                
+												<input type="submit" class="btn btn-primary" value="Simpan">
+												<a href="/admin/deleteUser/{{user_id}}" class="btn btn-danger pull-right">Hapus Data</a>                                                
 											</td>
 										</tr>
 									</tbody>

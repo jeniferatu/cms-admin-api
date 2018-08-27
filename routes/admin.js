@@ -7,7 +7,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
     res.render('admin/index', {
-        title: 'Express'
+        title: 'Selamat Datang'
     });
 });
 
@@ -60,13 +60,13 @@ router.get('/daftarnama/id/:query?', async (req, res, next) => {
 
 router.get('/users/addUser', (req, res, next) => {
     res.render('admin/addUser', {
-        title: 'Express'
+        title: 'Tambah Data Admin'
     });
 });
 
 router.get('/daftarnama/addNama', (req, res, next) => { //karna /daftarnama dianggep /query
     res.render('admin/addNama', {
-        title: 'Express'
+        title: 'Tambah Data Dosen'
     });
     console.log("makan");
 });
@@ -75,7 +75,7 @@ router.get('/detailedUsers/:id', async (req, res, next) => {
     const id = req.params.id;
     const row = await db.query(`SELECT user_id, email, name, status FROM user WHERE user_id=${id}`);
     res.render('admin/detailUser', {
-        title: 'Detail User',
+        title: 'Rincian Data Admin',
         row: row
     });
 });
@@ -86,7 +86,7 @@ router.get('/detailedNama/:id', async (req, res, next) => { //utk nampilin datan
     const row = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM ${tbl} WHERE Id=${id}`);
     console.log(row);
     res.render('admin/detailNama', { //yg ini view jd harus sesuai nama, klo yg diatas ga sama gpp krn utk routing
-        title: 'Detail Nama',
+        title: 'Rincian Data Dosen',
         alik: row,
         jeni: "makan"
     });

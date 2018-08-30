@@ -17,7 +17,7 @@ router.get('/testConnection', async (req, res) => {
 });
 
 router.get('/users/id/:query?', async (req, res, next) => {
-    const tbl = 'user';
+    const tbl = 'admin';
     const {
         query
     } = req.query; // Nama diganti jadi 
@@ -44,13 +44,13 @@ router.get('/daftarnama/id/:query?', async (req, res, next) => {
     } = req.query; // Nama diganti jadi 
     console.log(query);
     if (query != null) {
-        const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM ${tbl} WHERE Nama LIKE '%${query}%' `);
+        const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Id_Rekening, Nama_Keu FROM ${tbl} WHERE Nama LIKE '%${query}%' `);
         res.render('admin/daftarnama', {
             title: 'Data Dosen',
             rows: rows // karena ga ke detect klo ditaro diluar makanya biar cepet di taro disini
         });
     } else {
-        const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM ${tbl}`);
+        const rows = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Id_Rekening, Nama_Keu FROM ${tbl}`);
         res.render('admin/daftarnama', {
             title: 'Data Dosen',
             rows: rows
@@ -83,7 +83,7 @@ router.get('/detailedUsers/:id', async (req, res, next) => {
 router.get('/detailedNama/:id', async (req, res, next) => { //utk nampilin datanya id itu
     const id = req.params.id;
     const tbl = 'daftarnama';
-    const row = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Rekening_Bank, Nama_Rek_DKI FROM ${tbl} WHERE Id=${id}`);
+    const row = await db.query(`SELECT Id, Nama, Nama_Keuangan, Nama_Penjadwalan, Nama_BAU, Gelar, NIK, Id_Rekening, Nama_Keu FROM ${tbl} WHERE Id=${id}`);
     console.log(row);
     res.render('admin/detailNama', { //yg ini view jd harus sesuai nama, klo yg diatas ga sama gpp krn utk routing
         title: 'Rincian Data Dosen',
@@ -101,7 +101,7 @@ router.get('/updatePassword', (req, res, next) => {
 
 router.get('/deleteUser/:id', async (req, res) => {
     const id = req.params.id;
-    const tableName = 'user';
+    const tableName = 'admin';
     const result = await db.query(`DELETE FROM ${tableName} WHERE user_id=${id}`);
     console.log(result);
     res.redirect('/admin/users/id');
@@ -148,8 +148,8 @@ router.post('/createNama', async (req, res) => {
         Nama_BAU,
         Gelar,
         NIK,
-        Rekening_Bank,
-        Nama_Rek_DKI
+        Id_Rekening, 
+        Nama_Keu
     } = req.body; //input dr browser
     const tableName = 'daftarnama';
     const tableValue = {
@@ -159,8 +159,9 @@ router.post('/createNama', async (req, res) => {
         Nama_BAU: Nama_BAU,
         Gelar: Gelar,
         NIK: NIK,
-        Rekening_Bank: Rekening_Bank,
-        Nama_Rek_DKI: Nama_Rek_DKI
+        Id_Rekening : Id_Rekening, 
+        Nama_Keu : Nama_Keu
+        
     }
     const result = await db.insertRow(tableName, tableValue, res);
     console.log()
@@ -176,7 +177,7 @@ router.post('/editUser/:id', async (req, res) => {
         status
     } = req.body;
     const id = req.params.id;
-    const tableName = 'user';
+    const tableName = 'admin';
     const condition = {
         user_id: id
     }
@@ -216,8 +217,8 @@ router.post('/editNama/:id', async (req, res) => {
         Nama_BAU,
         Gelar,
         NIK,
-        Rekening_Bank,
-        Nama_Rek_DKI
+        Id_Rekening, 
+        Nama_Keu
     } = req.body;
     const id = req.params.id;
     const tableName = 'daftarnama';
@@ -231,8 +232,8 @@ router.post('/editNama/:id', async (req, res) => {
         Nama_BAU: Nama_BAU,
         Gelar: Gelar,
         NIK: NIK,
-        Rekening_Bank: Rekening_Bank,
-        Nama_Rek_DKI: Nama_Rek_DKI
+        Id_Rekening : Id_Rekening, 
+        Nama_Keu : Nama_Keu
     }
     const result = await db.updateRow(tableName, tableValue, condition, res);
     res.redirect('/admin/daftarnama/id');

@@ -47,7 +47,7 @@ app.use('/customcss', express.static(`${__dirname}/public/stylesheets`));
 app.use('/customjs', express.static(`${__dirname}/public/javascripts`));
 app.use('/plugins', express.static(`${__dirname}/node_modules/admin-lte/plugins`));
 
-app.use('/admin', admin);
+app.use('/admin',requireLogin, admin);
 app.use('/', index);
 // app.use('/admin', requireLogin, admin);
 
@@ -75,7 +75,7 @@ function requireLogin(req, res, next) {
     next(); // allow the next route to run
   } else {
     // require the user to log in
-    res.redirect("/admin/login"); // or render a form, etc.
+    res.redirect("/login"); // or render a form, etc.
   }
 }
 

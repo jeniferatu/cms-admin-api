@@ -14,22 +14,15 @@ router.get('/logout', async(req, res, next) => {
 });
 
 router.get('/login', async(req, res, next) => {
-  res.render('admin/login', {title: 'Login Admin'});
+  res.render('login', {title: 'Login Admin'});
 });
-
-router.get('/dashboard', function(req,res){
-  if(!loggedIn){
-    return res.status(401).send();
-  }
-  return res.status(200).send("Welcome to super secret API");
-
-})
 
 router.post('/login', async(req, res, next) => {
   const {email, password} = req.body;
   const hashedPassword = crypto.SHA3(password, {outputLength: 512}).toString();
-  const tableValue = 'user';
+  const tableValue = 'admin';
   const row = await db.query(`SELECT * FROM ${tableValue} WHERE email='${email}'`);
+  console.log(hashedPassword);
   if(row.length > 0){
     if(row[0].password === hashedPassword){
       req.session.loggedIn = true;
@@ -49,6 +42,5 @@ router.post('/login', async(req, res, next) => {
       "success": "Email and password does not match"
     });
   }
-  res.send(row[0]);
 });
 module.exports = router;

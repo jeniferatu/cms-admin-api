@@ -73,7 +73,8 @@ router.get('/daftarnama/addNama', (req, res, next) => { //karna /daftarnama dian
 
 router.get('/detailedUsers/:id', async (req, res, next) => {
     const id = req.params.id;
-    const row = await db.query(`SELECT user_id, email, name, status FROM user WHERE user_id=${id}`);
+    
+    const row = await db.query(`SELECT user_id, email, name, status FROM admin WHERE user_id=${id}`);
     res.render('admin/detailUser', {
         title: 'Rincian Data Admin',
         row: row
@@ -125,7 +126,7 @@ router.post('/createUser', async (req, res) => {
         password2,
         name
     } = req.body;
-    const tableName = 'user';
+    const tableName = 'admin';
     const hashedPassword = crypto.SHA3(password, {
         outputLength: 512
     }).toString();
